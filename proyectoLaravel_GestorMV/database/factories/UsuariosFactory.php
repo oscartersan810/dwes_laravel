@@ -21,7 +21,7 @@ class UsuariosFactory extends Factory
             'apellidos'=>$this->faker->lastName(),
             'apodo'=>$this->faker->userName(),
             'edad'=>$this->faker->numberBetween(18, 60),
-            'rol'=>$this->faker->randomElement(['admin', 'usuario']),
+            'rol'=>$this->faker->randomElement(['admin', 'user']),
         ];
     }
 }
