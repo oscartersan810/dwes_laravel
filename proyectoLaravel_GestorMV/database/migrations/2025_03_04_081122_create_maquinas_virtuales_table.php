@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('cpu', 50);
             $table->string('discoduro', 50);
             $table->string('tipoRed', 50);
-            $table->string('ip', 50);
+            $table->timestamp('fecha_creacion')->useCurrent();
             $table->foreignId('id_usuario')->constrained('usuarios');
             $table->timestamps();
         });
