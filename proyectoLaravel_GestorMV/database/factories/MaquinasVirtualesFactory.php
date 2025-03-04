@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\MaquinasVirtuales;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,6 +15,8 @@ class MaquinasVirtualesFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    protected $model = MaquinasVirtuales::class;
     public function definition(): array
     {
         return [
@@ -23,8 +26,8 @@ class MaquinasVirtualesFactory extends Factory
             'cpu'=>$this->faker->numberBetween(1, 8). ' Nucleos',
             'discoduro'=>$this->faker->numberBetween(100, 500).'GB',
             'tipoRed'=>$this->faker->randomElement(['NAT', 'Adaptador Puente', 'Host-only']),
-            'fecha_creacion'=>$this->faker->dateTimeBetween("01-01-2020", "31-12-2024")->format('d-m-Y H:i:s'),
-            'usuario_id'=>$this->faker->numberBetween(1, 10),
+            'fecha_creacion'=>$this->faker->dateTimeBetween("2020-01-01", "2024-12-31")->format('Y-m-d H:i:s'),
+            'id_usuario'=>$this->faker->numberBetween(1, 10),
         ];
     }
 }
