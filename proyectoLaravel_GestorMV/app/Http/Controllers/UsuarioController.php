@@ -9,11 +9,11 @@ class UsuarioController extends Controller
 {
     public function index(){
         $usuarios = Usuario::all();
-        return view ('usuarios/index', data: ['usuarios' => $usuarios]);
+        return view ('usuarios.lista', data: ['usuarios' => $usuarios]);
     }
 
     public function create(){
-        return view('usuarios/nuevousuario');
+        return view('usuarios.nuevousuario');
     }
 
     public function store(Request $request){
@@ -40,12 +40,12 @@ class UsuarioController extends Controller
 
     public function show($id){
         $usuario = Usuario::find($id);
-        return view('usuarios/detalleusuario', data: ['usuario' => $usuario]);
+        return view('usuarios.detalleusuario', data: ['usuario' => $usuario]);
     }
 
     public function edit($id){
         $usuario = Usuario::find($id);
-        return view('usuarios/editausuario', data: ['usuario' => $usuario]);
+        return view('usuarios.editausuario', data: ['usuario' => $usuario]);
     }
 
     public function update(Request $request, $id){

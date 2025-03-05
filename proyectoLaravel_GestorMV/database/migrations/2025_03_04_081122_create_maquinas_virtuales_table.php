@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 100);
             $table->string('so', 50);
-            $table->string('ram', 50);
-            $table->string('cpu', 50);
-            $table->string('discoduro', 50);
+            $table->integer('ram');
+            $table->integer('cpu');
+            $table->integer('discoduro');
             $table->string('tipoRed', 50);
             $table->timestamp('fecha_creacion')->useCurrent();
             $table->foreignId('id_usuario')->constrained('usuarios');

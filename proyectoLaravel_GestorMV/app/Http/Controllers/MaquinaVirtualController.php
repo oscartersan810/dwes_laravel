@@ -10,11 +10,11 @@ class MaquinaVirtualController extends Controller
 {
     public function index(){
         $maquinas = MaquinasVirtuales::all();
-        return view ('index', data: ['maquinas' => $maquinas]);
+        return view ('maquina.home', data: ['maquinas' => $maquinas]);
     }
 
     public function create(){
-        return view('nuevamaquina');
+        return view('maquina.nuevamaquina');
     }
 
     public function store(Request $request){
@@ -26,7 +26,7 @@ class MaquinaVirtualController extends Controller
             'discoduro' => 'required',
             'tipoRed' => 'required',
             'fecha_creacion' => 'required',
-            'usuario_id' => 'required',
+            'id_usuario' => 'required',
         ]);
 
         $maquina = new MaquinasVirtuales();
@@ -38,21 +38,21 @@ class MaquinaVirtualController extends Controller
         $maquina->discoduro = $request->input('discoduro');
         $maquina->tipoRed = $request->input('tipoRed');
         $maquina->fecha_creacion = $request->input('fecha_creacion');
-        $maquina->usuario_id = $request->input('usuario_id');
+        $maquina->id_usuario = $request->input('id_usuario');
 
         $maquina->save();
 
-        return view("message", data: ['message' => 'Máquina virtual creada correctamente']);
+        return view("maquina.message", data: ['message' => 'Máquina virtual creada correctamente']);
     }
 
     public function show($id){
         $maquina = MaquinasVirtuales::find($id);
-        return view('detallemaquina', data: ['maquina' => $maquina]);
+        return view('maquina.detallemaquina', data: ['maquina' => $maquina]);
     }
 
     public function edit($id){
         $maquina = MaquinasVirtuales::find($id);
-        return view('editamaquina', data: ['maquina' => $maquina]);
+        return view('maquina.editamaquina', data: ['maquina' => $maquina]);
     }
 
     public function update(Request $request, $id){
@@ -64,7 +64,7 @@ class MaquinaVirtualController extends Controller
             'discoduro' => 'required',
             'tipoRed' => 'required',
             'fecha_creacion' => 'required',
-            'usuario_id' => 'required',
+            'id_usuario' => 'required',
         ]);
 
         $maquina = MaquinasVirtuales::find($id);
@@ -76,17 +76,17 @@ class MaquinaVirtualController extends Controller
         $maquina->discoduro = $request->input('discoduro');
         $maquina->tipoRed = $request->input('tipoRed');
         $maquina->fecha_creacion = $request->input('fecha_creacion');
-        $maquina->usuario_id = $request->input('usuario_id');
+        $maquina->id_usuario = $request->input('id_usuario');
 
         $maquina->save();
 
-        return view("message", data: ['message' => 'Máquina virtual actualizada correctamente']);
+        return view("maquina.message", data: ['message' => 'Máquina virtual actualizada correctamente']);
     }
 
     public function destroy($id){
         $maquina = MaquinasVirtuales::find($id);
         $maquina->delete();
 
-        return view("message", data: ['message' => 'Máquina virtual eliminada correctamente']);
+        return view("maquina.message", data: ['message' => 'Máquina virtual eliminada correctamente']);
     }
 }
