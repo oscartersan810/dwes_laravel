@@ -50,7 +50,7 @@
 <body>
     <div class="container">
         <h2 class="text-center text-warning mb-3">Editar Máquina Virtual</h2>
-        <form action="{{ url('maquina/'.$maquina->id) }}" method="post">
+        <form action="{{ url('maquinas/'.$maquina->id) }}" method="post">
             @csrf
             @method('PUT')
             
@@ -93,7 +93,7 @@
 
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">✅ Actualizar</button>
-                <a href="{{ url('maquina') }}" class="btn btn-secondary">🔙 Cancelar</a>
+                <a href="{{ url('maquinas') }}" class="btn btn-secondary">🔙 Cancelar</a>
             </div>
         </form>
     </div>

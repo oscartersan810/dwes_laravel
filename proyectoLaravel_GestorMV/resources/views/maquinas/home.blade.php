@@ -89,9 +89,9 @@
                     <td>{{ $maquina->fecha_creacion }}</td>
                     <td>{{ $maquina->id_usuario }}</td>
                     <td class="action-buttons">
-                        <a href="{{ url('maquina/'.$maquina->id.'/detallemaquina') }}" class="btn btn-info btn-sm">🔍</a>
-                        <a href="{{ url('maquina/'.$maquina->id.'/editamaquina') }}" class="btn btn-warning btn-sm">✏️</a>
-                        <form action="{{ url('maquina/'.$maquina->id) }}" method="post" style="display:inline;">
+                        <a href="{{ url('maquinas/'.$maquina->id.'/detallemaquina') }}" class="btn btn-info btn-sm">🔍</a>
+                        <a href="{{ url('maquinas/'.$maquina->id.'/editamaquina') }}" class="btn btn-warning btn-sm">✏️</a>
+                        <form action="{{ url('maquinas/'.$maquina->id) }}" method="post" style="display:inline;">
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
@@ -103,8 +103,8 @@
         </table>
 
         <div class="text-center mt-3">
-            <a href="{{url('maquina/nuevamaquina')}}" class="btn btn-success me-2">➕ Nueva Máquina</a>
-            <a href="{{url('usuarios')}}" class="btn btn-primary">👤 Ver Usuarios</a>
+            <a href="{{url('maquinas/nuevamaquina')}}" class="btn btn-success me-2">➕ Nueva Máquina</a>
+            <a href="{{url('/')}}" class="btn btn-primary">🏠 Volver a Inicio</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

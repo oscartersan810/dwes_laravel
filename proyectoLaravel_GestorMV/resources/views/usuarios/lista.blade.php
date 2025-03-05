@@ -100,7 +100,7 @@
 
         <div class="text-center mt-3">
             <a href="{{url('usuarios/nuevousuario')}}" class="btn btn-success me-2">➕ Nuevo Usuario</a>
-            <a href="{{url('maquina')}}" class="btn btn-primary">💻 Ver Máquinas Virtuales</a>
+            <a href="{{url('/')}}" class="btn btn-primary">🏠 Volver a Inicio</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

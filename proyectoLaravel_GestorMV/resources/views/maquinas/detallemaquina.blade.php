@@ -76,12 +76,13 @@
             <input type="text" class="form-control" id="tipoRed" name="tipoRed" value="{{ $maquina->tipoRed }}" readonly>
         </div>
         <div class="mb-3">
-            <label for="id_usuario" class="form-label">ID del Usuario</label>
-            <input type="number" class="form-control" id="id_usuario" name="id_usuario" value="{{ $maquina->id_usuario }}" readonly>
+            <label for="usuario" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" 
+                   value="{{ $maquina->usuario->nombre ?? 'No asignado' }}" readonly>
         </div>
-
+        
         <div class="text-center">
-            <a href="{{ url('maquina') }}" class="btn btn-secondary">🔙 Volver</a>
+            <a href="{{ url('maquinas') }}" class="btn btn-secondary">🔙 Volver</a>
         </div>
     </div>
 

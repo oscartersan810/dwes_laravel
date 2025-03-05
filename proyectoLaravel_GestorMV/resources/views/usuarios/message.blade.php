@@ -51,7 +51,7 @@
     <div class="container">
         <h4 class="text-center text-warning mb-3">{{ $message }}</h4>
         <div class="text-center">
-            <a href="{{ url('maquina/') }}" class="btn btn-secondary">Volver</a>
+            <a href="{{ url('usuarios') }}" class="btn btn-secondary">Volver</a>
         </div>
     </div>
 

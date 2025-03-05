@@ -23,6 +23,7 @@ class UsuarioController extends Controller
             'apodo' => 'required',
             'edad' => 'required',
             'rol' => 'required',
+            'password' => 'required'
         ]);
 
         $usuario = new Usuario();
@@ -32,15 +33,21 @@ class UsuarioController extends Controller
         $usuario->apodo = $request->input('apodo');
         $usuario->edad = $request->input('edad');
         $usuario->rol = $request->input('rol');
+        $usuario->password = $request->input('password');
 
         $usuario->save();
 
-        return view("message", data: ['message' => 'Usuario creado correctamente']);
+        return view("usuarios.message", data: ['message' => 'Usuario creado correctamente']);
     }
 
     public function show($id){
-        $usuario = Usuario::find($id);
-        return view('usuarios.detalleusuario', data: ['usuario' => $usuario]);
+        $usuario = Usuario::with('maquinas')->findOrFail($id);
+        $cantidadMaquinas = $usuario->maquinas->count(); 
+    
+        return view('usuarios.detalleusuario', [
+            'usuario' => $usuario,
+            'cantidadMaquinas' => $cantidadMaquinas
+        ]);
     }
 
     public function edit($id){
@@ -55,6 +62,7 @@ class UsuarioController extends Controller
             'apodo' => 'required',
             'edad' => 'required',
             'rol' => 'required',
+            'password' => 'required'
         ]);
 
         $usuario = Usuario::find($id);
@@ -64,16 +72,17 @@ class UsuarioController extends Controller
         $usuario->apodo = $request->input('apodo');
         $usuario->edad = $request->input('edad');
         $usuario->rol = $request->input('rol');
+        $usuario->password = $request->input('password');
 
         $usuario->save();
 
-        return view("message", data: ['message' => 'Usuario actualizado correctamente']);
+        return view("usuarios.message", data: ['message' => 'Usuario actualizado correctamente']);
     }
 
     public function destroy($id){
         $usuario = Usuario::find($id);
         $usuario->delete();
 
-        return view("message", data: ['message' => 'Usuario eliminado correctamente']);
+        return view("usuarios.message", data: ['message' => 'Usuario eliminado correctamente']);
     }
 }

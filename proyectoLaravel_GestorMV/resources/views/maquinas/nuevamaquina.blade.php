@@ -50,7 +50,7 @@
 <body>
     <div class="container">
         <h2 class="text-center text-warning mb-3">Registrar Nueva Máquina Virtual</h2>
-        <form action="{{ url('/maquina') }}" method="post">
+        <form action="{{ url('/maquinas') }}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
@@ -90,7 +90,7 @@
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">✅ Registrar</button>
-                <a href="{{ url('/maquina') }}" class="btn btn-secondary">🔙 Cancelar</a>
+                <a href="{{ url('/maquinas') }}" class="btn btn-secondary">🔙 Cancelar</a>
             </div>
         </form>
     </div>

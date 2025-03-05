@@ -10,11 +10,11 @@ class MaquinaVirtualController extends Controller
 {
     public function index(){
         $maquinas = MaquinasVirtuales::all();
-        return view ('maquina.home', data: ['maquinas' => $maquinas]);
+        return view ('maquinas.home', data: ['maquinas' => $maquinas]);
     }
 
     public function create(){
-        return view('maquina.nuevamaquina');
+        return view('maquinas.nuevamaquina');
     }
 
     public function store(Request $request){
@@ -42,17 +42,18 @@ class MaquinaVirtualController extends Controller
 
         $maquina->save();
 
-        return view("maquina.message", data: ['message' => 'Máquina virtual creada correctamente']);
+        return view("maquinas.message", data: ['message' => 'Máquina virtual creada correctamente']);
     }
 
     public function show($id){
-        $maquina = MaquinasVirtuales::find($id);
-        return view('maquina.detallemaquina', data: ['maquina' => $maquina]);
+        $maquina = MaquinasVirtuales::with('usuario')->findOrFail($id);
+        return view('maquinas.detallemaquina', ['maquina' => $maquina]);
     }
+    
 
     public function edit($id){
         $maquina = MaquinasVirtuales::find($id);
-        return view('maquina.editamaquina', data: ['maquina' => $maquina]);
+        return view('maquinas.editamaquina', data: ['maquina' => $maquina]);
     }
 
     public function update(Request $request, $id){
@@ -80,13 +81,13 @@ class MaquinaVirtualController extends Controller
 
         $maquina->save();
 
-        return view("maquina.message", data: ['message' => 'Máquina virtual actualizada correctamente']);
+        return view("maquinas.message", data: ['message' => 'Máquina virtual actualizada correctamente']);
     }
 
     public function destroy($id){
         $maquina = MaquinasVirtuales::find($id);
         $maquina->delete();
 
-        return view("maquina.message", data: ['message' => 'Máquina virtual eliminada correctamente']);
+        return view("maquinas.message", data: ['message' => 'Máquina virtual eliminada correctamente']);
     }
 }
