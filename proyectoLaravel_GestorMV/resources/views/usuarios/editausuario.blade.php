@@ -102,7 +102,7 @@
             </div>
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-submit">Actualizar Usuario</button>
-                <a href="{{ url('/usuarios') }}" class="btn btn-back">Cancelar</a>
+                <a href="{{ url('usuarios') }}" class="btn btn-back">Cancelar</a>
             </div>
         </form>
     </div>
