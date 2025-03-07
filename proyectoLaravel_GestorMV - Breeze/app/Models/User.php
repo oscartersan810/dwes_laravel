@@ -18,13 +18,9 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'nombre',
-        'apellidos',
-        'age',
+        'name',
         'email',
-        'email_verified_at',
         'password',
-        'rol',
     ];
 
     /**
@@ -48,10 +44,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function maquinas()
-    {
-        return $this->hasMany(MaquinasVirtuales::class, 'id_usuario');
     }
 }

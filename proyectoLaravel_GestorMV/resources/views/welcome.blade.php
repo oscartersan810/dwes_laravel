@@ -61,8 +61,12 @@
         <h1>Bienvenido al Gestor de Máquinas Virtuales</h1>
         <p>Elige una de las opciones a continuación para continuar:</p>
         <div class="btn-group">
-            <a href="{{ url('maquinas') }}" class="btn btn-warning">🖥️ Tabla de Máquinas</a>
-            <a href="{{ url('usuarios') }}" class="btn btn-primary">👤 Tabla de Usuarios</a>
+            @auth
+                <a href="{{ url('dashboard') }}" class="btn btn-success">🏠 Ir al Dashboard</a>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-warning">🔑 Iniciar Sesión</a>
+                <a href="{{ route('register') }}" class="btn btn-primary">📝 Registrarse</a>
+            @endauth
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
