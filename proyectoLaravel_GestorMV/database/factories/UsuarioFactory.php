@@ -20,6 +20,8 @@ class UsuarioFactory extends Factory
             'nombre'=>$this->faker->name(),
             'apellidos'=>$this->faker->lastName(),
             'apodo'=>$this->faker->userName(),
+            'email'=>$this->faker->unique()->safeEmail(),
+            'email_verified_at'=>now(),
             'password'=>$this->faker->password(),
             'edad'=>$this->faker->numberBetween(18, 60),
             'rol'=>$this->faker->randomElement(['admin', 'user']),

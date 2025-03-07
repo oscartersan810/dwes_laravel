@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de Usuarios</title>
+    <title>Lista de Máquinas Virtuales</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to right, #2c3e50, #ba34db);
+            background: linear-gradient(to right, #141e30, #243b55);
             color: white;
             min-height: 100vh;
             display: flex;
@@ -60,36 +60,38 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center text-warning mb-3">Lista de Usuarios</h2>
+        <h2 class="text-center text-warning mb-3">Lista de Máquinas Virtuales</h2>
         <table class="table table-bordered table-hover text-white text-center">
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Apodo</th>
-                    <th>Email</th>
-                    <th>Rol</th>
-                    <th>Edad</th>
-                    <th>Fecha de Creación</th>
+                    <th>SO</th>
+                    <th>RAM</th>
+                    <th>CPU</th>
+                    <th>Disco</th>
+                    <th>Red</th>
+                    <th>Fecha Creacion</th>
+                    <th>ID Usuario</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($usuarios as $usuario)
+                @foreach($maquinas as $maquina)
                 <tr>
-                    <td>{{ $usuario->id }}</td>
-                    <td>{{ $usuario->nombre }}</td>
-                    <td>{{ $usuario->apellidos }}</td>
-                    <td>{{ $usuario->apodo }}</td>
-                    <td>{{ $usuario->email }}</td>
-                    <td>{{ $usuario->rol }}</td>
-                    <td>{{ $usuario->edad }}</td>
-                    <td>{{ $usuario->created_at }}</td>
+                    <td>{{ $maquina->id }}</td>
+                    <td>{{ $maquina->nombre }}</td>
+                    <td>{{ $maquina->so }}</td>
+                    <td>{{ $maquina->ram }} GB</td>
+                    <td>{{ $maquina->cpu }} Núcleos</td>
+                    <td>{{ $maquina->discoduro }} GB</td>
+                    <td>{{ $maquina->tipoRed }}</td>
+                    <td>{{ $maquina->fecha_creacion }}</td>
+                    <td>{{ $maquina->id_usuario }}</td>
                     <td class="action-buttons">
-                        <a href="{{ url('usuarios/'.$usuario->id. '/detalleusuario') }}" class="btn btn-info btn-sm">🔍</a>
-                        <a href="{{ url('usuarios/'.$usuario->id.'/editausuario') }}" class="btn btn-warning btn-sm">✏️</a>
-                        <form action="{{ url('usuarios/'.$usuario->id) }}" method="post" style="display:inline;">
+                        <a href="{{ url('maquinas/'.$maquina->id.'/detallemaquina') }}" class="btn btn-info btn-sm">🔍</a>
+                        <a href="{{ url('maquinas/'.$maquina->id.'/editamaquina') }}" class="btn btn-warning btn-sm">✏️</a>
+                        <form action="{{ url('maquinas/'.$maquina->id) }}" method="post" style="display:inline;">
                             @method("DELETE")
                             @csrf
                             <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
@@ -101,7 +103,7 @@
         </table>
 
         <div class="text-center mt-3">
-            <a href="{{url('usuarios/nuevousuario')}}" class="btn btn-success me-2">➕ Nuevo Usuario</a>
+            <a href="{{url('maquinas/nuevamaquina')}}" class="btn btn-success me-2">➕ Nueva Máquina</a>
             <a href="{{url('/')}}" class="btn btn-primary">🏠 Volver a Inicio</a>
         </div>
     </div>
